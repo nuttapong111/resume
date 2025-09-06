@@ -4,14 +4,11 @@
   "description": "Portfolio website for Nuttapong Silwuiti - Project Manager & Business Analyst",
   "main": "index.html",
   "scripts": {
-    "start": "serve . -p $PORT",
+    "start": "python3 -m http.server $PORT",
     "build": "echo 'No build step required for static site'",
-    "dev": "serve . -l 3000"
+    "dev": "python3 -m http.server 3000"
   },
   "keywords": ["portfolio", "resume", "project-manager", "business-analyst"],
   "author": "Nuttapong Silwuiti",
-  "license": "MIT",
-  "engines": {
-    "node": ">=14.0.0"
-  }
+  "license": "MIT"
 }
