@@ -104,18 +104,35 @@ if (contactForm) {
             return;
         }
 
-        // Simulate form submission
+        // Send email using EmailJS
         const submitBtn = contactForm.querySelector('button[type="submit"]');
         const originalText = submitBtn.textContent;
         submitBtn.textContent = 'กำลังส่ง...';
         submitBtn.disabled = true;
 
-        setTimeout(() => {
-            alert('ขอบคุณสำหรับข้อความ! ผมจะติดต่อกลับไปในเร็วๆ นี้');
-            contactForm.reset();
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-        }, 2000);
+        // Prepare email data
+        const templateParams = {
+            from_name: name,
+            from_email: email,
+            subject: subject,
+            message: message,
+            to_email: 'nuttapong.silwuti@gmail.com'
+        };
+
+        // Send email using EmailJS
+        emailjs.send('service_portfolio', 'template_contact', templateParams)
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                alert('ขอบคุณสำหรับข้อความ! ผมจะติดต่อกลับไปในเร็วๆ นี้');
+                contactForm.reset();
+            }, function(error) {
+                console.log('FAILED...', error);
+                alert('เกิดข้อผิดพลาดในการส่งข้อความ กรุณาลองใหม่อีกครั้ง');
+            })
+            .finally(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
     });
 }
 
