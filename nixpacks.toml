@@ -8,4 +8,4 @@ cmds = ["npm install -g serve"]
 cmds = ["echo 'Static site - no build required'"]
 
 [start]
-cmd = "npx serve . -p $PORT"
+cmd = "serve . -p $PORT"

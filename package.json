@@ -4,9 +4,9 @@
   "description": "Portfolio website for Nuttapong Silwuiti - Project Manager & Business Analyst",
   "main": "index.html",
   "scripts": {
-    "start": "npx serve .",
+    "start": "serve . -p $PORT",
     "build": "echo 'No build step required for static site'",
-    "dev": "npx serve . -l 3000"
+    "dev": "serve . -l 3000"
   },
   "keywords": ["portfolio", "resume", "project-manager", "business-analyst"],
   "author": "Nuttapong Silwuiti",
