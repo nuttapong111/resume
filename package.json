@@ -1,0 +1,17 @@
+{
+  "name": "nuttapong-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio website for Nuttapong Silwuiti - Project Manager & Business Analyst",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "build": "echo 'No build step required for static site'",
+    "dev": "npx serve . -l 3000"
+  },
+  "keywords": ["portfolio", "resume", "project-manager", "business-analyst"],
+  "author": "Nuttapong Silwuiti",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

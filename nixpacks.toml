@@ -1,0 +1,11 @@
+[phases.setup]
+nixPkgs = ["nodejs", "npm"]
+
+[phases.install]
+cmds = ["npm install -g serve"]
+
+[phases.build]
+cmds = ["echo 'Static site - no build required'"]
+
+[start]
+cmd = "npx serve . -p $PORT"
