@@ -251,12 +251,12 @@ function createPortfolioModal() {
         }
 
         .modal-overlay {
-            background: white;
+            background: transparent;
             border-radius: 15px;
-            max-width: 800px;
+            max-width: 100vw;
             width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
+            max-height: 100vh;
+            overflow: hidden;
         }
 
         .modal-content {
@@ -289,12 +289,16 @@ function createPortfolioModal() {
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 2rem;
+            padding: 0;
+            width: 100%;
+            height: 100%;
         }
 
         .modal-image {
-            max-width: 90vw;
-            max-height: 90vh;
+            max-width: 100vw;
+            max-height: 100vh;
+            width: auto;
+            height: auto;
             object-fit: contain;
             border-radius: 10px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
@@ -302,12 +306,12 @@ function createPortfolioModal() {
 
         @media (max-width: 768px) {
             .modal-body {
-                padding: 1rem;
+                padding: 0;
             }
             
             .modal-image {
-                max-width: 95vw;
-                max-height: 85vh;
+                max-width: 100vw;
+                max-height: 100vh;
             }
         }
     `;
@@ -402,24 +406,28 @@ function createCertificateModal() {
         }
 
         .certificate-modal .modal-overlay {
-            background: white;
+            background: transparent;
             border-radius: 15px;
-            max-width: 600px;
+            max-width: 100vw;
             width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
+            max-height: 100vh;
+            overflow: hidden;
         }
 
         .certificate-modal .modal-body {
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 2rem;
+            padding: 0;
+            width: 100%;
+            height: 100%;
         }
 
         .certificate-modal .modal-image {
-            max-width: 90vw;
-            max-height: 90vh;
+            max-width: 100vw;
+            max-height: 100vh;
+            width: auto;
+            height: auto;
             object-fit: contain;
             border-radius: 10px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
@@ -427,12 +435,12 @@ function createCertificateModal() {
 
         @media (max-width: 768px) {
             .certificate-modal .modal-body {
-                padding: 1rem;
+                padding: 0;
             }
             
             .certificate-modal .modal-image {
-                max-width: 95vw;
-                max-height: 85vh;
+                max-width: 100vw;
+                max-height: 100vh;
             }
         }
     `;
