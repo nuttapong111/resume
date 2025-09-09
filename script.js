@@ -230,7 +230,7 @@ function createPortfolioModal() {
                         <p class="modal-description"></p>
                         <div class="modal-tech"></div>
                         <div class="modal-links">
-                            <a href="#" class="modal-link" target="_blank">
+                            <a href="https://frontend-production-1f79.up.railway.app/" class="modal-link" target="_blank">
                                 <i class="fas fa-external-link-alt"></i> ดูผลงาน
                             </a>
                             <a href="#" class="modal-link" target="_blank">
