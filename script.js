@@ -78,46 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Form submission
-const contactForm = document.querySelector('.contact-form form');
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(contactForm);
-        const name = contactForm.querySelector('input[type="text"]').value;
-        const email = contactForm.querySelector('input[type="email"]').value;
-        const subject = contactForm.querySelectorAll('input[type="text"]')[1].value;
-        const message = contactForm.querySelector('textarea').value;
-
-        // Simple validation
-        if (!name || !email || !subject || !message) {
-            alert('กรุณากรอกข้อมูลให้ครบถ้วน');
-            return;
-        }
-
-        // Email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            alert('กรุณากรอกอีเมลให้ถูกต้อง');
-            return;
-        }
-
-        // Simulate form submission
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const originalText = submitBtn.textContent;
-        submitBtn.textContent = 'กำลังส่ง...';
-        submitBtn.disabled = true;
-
-        setTimeout(() => {
-            alert('ขอบคุณสำหรับข้อความ! ผมจะติดต่อกลับไปในเร็วๆ นี้');
-            contactForm.reset();
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-        }, 2000);
-    });
-}
 
 // Typing animation for hero title
 function typeWriter(element, text, speed = 100) {
