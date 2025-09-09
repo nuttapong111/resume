@@ -225,19 +225,6 @@ function createPortfolioModal() {
                 <span class="modal-close">&times;</span>
                 <div class="modal-body">
                     <img class="modal-image" src="" alt="">
-                    <div class="modal-info">
-                        <h3 class="modal-title"></h3>
-                        <p class="modal-description"></p>
-                        <div class="modal-tech"></div>
-                        <div class="modal-links">
-                            <a href="#" class="modal-link" target="_blank">
-                                <i class="fas fa-external-link-alt"></i> ดูผลงาน
-                            </a>
-                            <a href="#" class="modal-link" target="_blank">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -299,68 +286,28 @@ function createPortfolioModal() {
         }
 
         .modal-body {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             padding: 2rem;
         }
 
         .modal-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
             border-radius: 10px;
-        }
-
-        .modal-info h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #1e293b;
-            margin-bottom: 1rem;
-        }
-
-        .modal-info p {
-            color: #64748b;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .modal-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .modal-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .modal-link {
-            padding: 10px 20px;
-            background: #2563eb;
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .modal-link:hover {
-            background: #fbbf24;
-            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
         @media (max-width: 768px) {
             .modal-body {
-                grid-template-columns: 1fr;
-                gap: 1rem;
                 padding: 1rem;
             }
             
             .modal-image {
-                height: 200px;
+                max-width: 95vw;
+                max-height: 85vh;
             }
         }
     `;
@@ -387,25 +334,10 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const portfolioItem = link.closest('.portfolio-item');
             const image = portfolioItem.querySelector('.portfolio-image img');
-            const title = portfolioItem.querySelector('.portfolio-content h3');
-            const description = portfolioItem.querySelector('.portfolio-content p');
-            const techTags = portfolioItem.querySelectorAll('.tech-tag');
 
-            // Populate modal content
+            // Populate modal content - only image
             portfolioModal.querySelector('.modal-image').src = image.src;
             portfolioModal.querySelector('.modal-image').alt = image.alt;
-            portfolioModal.querySelector('.modal-title').textContent = title.textContent;
-            portfolioModal.querySelector('.modal-description').textContent = description.textContent;
-
-            // Clear and populate tech tags
-            const modalTech = portfolioModal.querySelector('.modal-tech');
-            modalTech.innerHTML = '';
-            techTags.forEach(tag => {
-                const techTag = document.createElement('span');
-                techTag.className = 'tech-tag';
-                techTag.textContent = tag.textContent;
-                modalTech.appendChild(techTag);
-            });
 
             // Show modal
             portfolioModal.classList.add('active');
@@ -444,12 +376,6 @@ function createCertificateModal() {
                 <span class="modal-close">&times;</span>
                 <div class="modal-body">
                     <img class="modal-image" src="" alt="">
-                    <div class="modal-info">
-                        <h3 class="modal-title"></h3>
-                        <p class="modal-issuer"></p>
-                        <p class="modal-date"></p>
-                        <div class="modal-status"></div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -485,47 +411,28 @@ function createCertificateModal() {
         }
 
         .certificate-modal .modal-body {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             padding: 2rem;
         }
 
         .certificate-modal .modal-image {
-            width: 100%;
-            height: 400px;
+            max-width: 90vw;
+            max-height: 90vh;
             object-fit: contain;
             border-radius: 10px;
-            border: 1px solid #e2e8f0;
-        }
-
-        .certificate-modal .modal-info h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #1e293b;
-            margin-bottom: 1rem;
-        }
-
-        .certificate-modal .modal-issuer {
-            color: #2563eb;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
-        .certificate-modal .modal-date {
-            color: #64748b;
-            margin-bottom: 1.5rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
         @media (max-width: 768px) {
             .certificate-modal .modal-body {
-                grid-template-columns: 1fr;
-                gap: 1rem;
                 padding: 1rem;
             }
             
             .certificate-modal .modal-image {
-                height: 250px;
+                max-width: 95vw;
+                max-height: 85vh;
             }
         }
     `;
@@ -552,18 +459,10 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const certificateItem = link.closest('.certificate-item');
             const image = certificateItem.querySelector('.certificate-image img');
-            const title = certificateItem.querySelector('.certificate-info h3');
-            const issuer = certificateItem.querySelector('.certificate-issuer');
-            const date = certificateItem.querySelector('.certificate-date');
-            const status = certificateItem.querySelector('.status-badge');
 
-            // Populate modal content
+            // Populate modal content - only image
             certificateModal.querySelector('.modal-image').src = image.src;
             certificateModal.querySelector('.modal-image').alt = image.alt;
-            certificateModal.querySelector('.modal-title').textContent = title.textContent;
-            certificateModal.querySelector('.modal-issuer').textContent = issuer.textContent;
-            certificateModal.querySelector('.modal-date').textContent = date.textContent;
-            certificateModal.querySelector('.modal-status').innerHTML = status.outerHTML;
 
             // Show modal
             certificateModal.classList.add('active');
