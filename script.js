@@ -399,6 +399,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const title = portfolioItem.querySelector('.portfolio-content h3');
             const description = portfolioItem.querySelector('.portfolio-content p');
             const techTags = portfolioItem.querySelectorAll('.tech-tag');
+            
+            // Get links from data attributes
+            const websiteUrl = portfolioItem.getAttribute('data-website');
+            const githubUrl = portfolioItem.getAttribute('data-github');
 
             // Populate modal content
             portfolioModal.querySelector('.modal-image').src = image.src;
@@ -415,6 +419,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 techTag.textContent = tag.textContent;
                 modalTech.appendChild(techTag);
             });
+
+            // Update modal links
+            const modalLinks = portfolioModal.querySelectorAll('.modal-link');
+            if (modalLinks[0]) {
+                modalLinks[0].href = websiteUrl || '#';
+            }
+            if (modalLinks[1]) {
+                modalLinks[1].href = githubUrl || '#';
+            }
 
             // Show modal
             portfolioModal.classList.add('active');
