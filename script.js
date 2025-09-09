@@ -225,6 +225,19 @@ function createPortfolioModal() {
                 <span class="modal-close">&times;</span>
                 <div class="modal-body">
                     <img class="modal-image" src="" alt="">
+                    <div class="modal-info">
+                        <h3 class="modal-title"></h3>
+                        <p class="modal-description"></p>
+                        <div class="modal-tech"></div>
+                        <div class="modal-links">
+                            <a href="#" class="modal-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> ดูผลงาน
+                            </a>
+                            <a href="#" class="modal-link" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -251,12 +264,12 @@ function createPortfolioModal() {
         }
 
         .modal-overlay {
-            background: transparent;
+            background: white;
             border-radius: 15px;
-            max-width: 100vw;
+            max-width: 800px;
             width: 100%;
-            max-height: 100vh;
-            overflow: hidden;
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
         .modal-content {
@@ -286,32 +299,77 @@ function createPortfolioModal() {
         }
 
         .modal-body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0;
-            width: 100%;
-            height: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding: 2rem;
         }
 
         .modal-image {
-            max-width: 100vw;
-            max-height: 100vh;
-            width: auto;
-            height: auto;
-            object-fit: contain;
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
             border-radius: 10px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-info h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .modal-info p {
+            color: #64748b;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .modal-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .modal-link {
+            padding: 10px 20px;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .modal-link:hover {
+            background: #fbbf24;
+            transform: translateY(-2px);
+        }
+
+        .tech-tag {
+            background: #f1f5f9;
+            color: #2563eb;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
         }
 
         @media (max-width: 768px) {
             .modal-body {
-                padding: 0;
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 1rem;
             }
             
             .modal-image {
-                max-width: 100vw;
-                max-height: 100vh;
+                height: 200px;
             }
         }
     `;
@@ -338,10 +396,25 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const portfolioItem = link.closest('.portfolio-item');
             const image = portfolioItem.querySelector('.portfolio-image img');
+            const title = portfolioItem.querySelector('.portfolio-content h3');
+            const description = portfolioItem.querySelector('.portfolio-content p');
+            const techTags = portfolioItem.querySelectorAll('.tech-tag');
 
-            // Populate modal content - only image
+            // Populate modal content
             portfolioModal.querySelector('.modal-image').src = image.src;
             portfolioModal.querySelector('.modal-image').alt = image.alt;
+            portfolioModal.querySelector('.modal-title').textContent = title.textContent;
+            portfolioModal.querySelector('.modal-description').textContent = description.textContent;
+
+            // Clear and populate tech tags
+            const modalTech = portfolioModal.querySelector('.modal-tech');
+            modalTech.innerHTML = '';
+            techTags.forEach(tag => {
+                const techTag = document.createElement('span');
+                techTag.className = 'tech-tag';
+                techTag.textContent = tag.textContent;
+                modalTech.appendChild(techTag);
+            });
 
             // Show modal
             portfolioModal.classList.add('active');
