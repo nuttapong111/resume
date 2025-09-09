@@ -102,7 +102,7 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
     color: white;
     position: relative;
     overflow: hidden;
@@ -142,7 +142,7 @@ body {
 }
 
 .highlight {
-    color: #fbbf24;
+    color: #1e293b;
 }
 
 .hero-subtitle {
@@ -175,14 +175,14 @@ body {
 }
 
 .btn-primary {
-    background: #fbbf24;
-    color: #1e293b;
+    background: #1e293b;
+    color: white;
 }
 
 .btn-primary:hover {
-    background: #f59e0b;
+    background: #334155;
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(251, 191, 36, 0.3);
+    box-shadow: 0 10px 25px rgba(30, 41, 59, 0.3);
 }
 
 .btn-secondary {
@@ -193,7 +193,7 @@ body {
 
 .btn-secondary:hover {
     background: white;
-    color: #2563eb;
+    color: #f59e0b;
     transform: translateY(-2px);
 }
 
@@ -213,7 +213,7 @@ body {
     margin: 0 auto 1.5rem;
     border-radius: 50%;
     overflow: hidden;
-    border: 4px solid #fbbf24;
+    border: 4px solid #1e293b;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
